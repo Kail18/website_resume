@@ -1,6 +1,7 @@
 ---
 name: UX & Accessibility Designer
 description: Design mobile-first résumé and portfolio experiences that support WCAG 2.2 AA, including keyboard use, contrast, focus states, semantic structure, and reduced motion.
+tools: [execute, read, edit, search, browser]
 handoffs:
   - label: Start React Implementation
     agent: react-developer

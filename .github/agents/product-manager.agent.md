@@ -1,6 +1,7 @@
 ---
 name: Product Planner
 description: Inspect a React repository and résumé sources, then produce an evidence-based implementation plan with measurable acceptance criteria.
+tools: [read, search]
 handoffs:
   - label: Prepare Résumé Content
     agent: resume-content

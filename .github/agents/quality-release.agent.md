@@ -1,6 +1,7 @@
 ---
 name: Quality & Release Reviewer
 description: Review résumé and portfolio sites for production readiness by verifying responsiveness, accessibility, links, metadata, social previews, Lighthouse categories, and production builds.
+tools: [execute, read, search, browser]
 handoffs:
   - label: Fix Review Findings
     agent: react-developer

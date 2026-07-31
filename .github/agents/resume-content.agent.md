@@ -1,6 +1,7 @@
 ---
 name: Résumé Content Editor
 description: Refine résumé and related content for recruiter readability and scanning while preserving every factual claim and avoiding invented details.
+tools: [read, search]
 handoffs:
   - label: Design the Experience
     agent: ux-accessibility
