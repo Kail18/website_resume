@@ -6,7 +6,7 @@ handoffs:
   - label: Fix Review Findings
     agent: react-developer
     prompt: Address the blocking and approved non-blocking findings from this quality review. Preserve résumé facts and existing product direction, run all relevant checks, and return the implementation for another quality review.
-    send: false
+    send: true
 ---
 
 # Quality & Release Reviewer
@@ -71,3 +71,13 @@ The review is complete only when:
 - Automated accessibility testing is supplemented by manual keyboard and semantic checks.
 - The final verdict is explicitly stated as Ready, Ready with non-blocking findings, or Not Ready.
 - Any skipped or unavailable check is identified along with its resulting risk.
+
+## Approval-gated handoff
+
+After completing your assigned work:
+
+1. Summarize what you completed.
+2. List important decisions, unresolved questions, and risks.
+3. State which agent should work next.
+4. Ask the user to review the summary and select the configured handoff button if they approve.
+5. Do not begin the next phase without user approval.

@@ -6,12 +6,12 @@ handoffs:
   - label: Design the Experience
     agent: ux-accessibility
     prompt: Use the refined résumé content to define the website's visual hierarchy, responsive presentation, navigation, and accessibility requirements.
-    send: false
+    send: true
 
   - label: Revisit the Plan
     agent: product-planner
     prompt: Review the content editor's verification notes and update the implementation plan where evidence, scope, or requirements remain unclear.
-    send: false
+    send: true
 ---
 
 # Résumé Content Editor
@@ -74,3 +74,13 @@ The work is complete only when:
 - Unsupported, ambiguous, or potentially overstated claims are clearly flagged.
 - No invented details or unjustified keywords have been introduced.
 - The UX & Accessibility Designer can use the resulting content without guessing about hierarchy or priority.
+
+## Approval-gated handoff
+
+After completing your assigned work:
+
+1. Summarize what you completed.
+2. List important decisions, unresolved questions, and risks.
+3. State which agent should work next.
+4. Ask the user to review the summary and select the configured handoff button if they approve.
+5. Do not begin the next phase without user approval.

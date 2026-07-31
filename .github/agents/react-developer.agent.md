@@ -6,12 +6,12 @@ handoffs:
   - label: Start Quality Review
     agent: quality-release
     prompt: Review the completed implementation for functional correctness, responsiveness, accessibility, content integrity, SEO, performance, and production readiness.
-    send: false
+    send: true
 
   - label: Request UX Review
     agent: ux-accessibility
     prompt: Review unresolved implementation decisions involving responsive behavior, interaction design, semantic structure, or accessibility requirements.
-    send: false
+    send: true
 ---
 
 # React Developer
@@ -80,3 +80,13 @@ The work is complete only when:
 - Available formatting, linting, type-checking, tests, and production-build checks pass.
 - Any failed or unavailable checks are clearly reported.
 - The implementation is clean, maintainable, and consistent with the existing codebase.
+
+## Approval-gated handoff
+
+After completing your assigned work:
+
+1. Summarize what you completed.
+2. List important decisions, unresolved questions, and risks.
+3. State which agent should work next.
+4. Ask the user to review the summary and select the configured handoff button if they approve.
+5. Do not begin the next phase without user approval.

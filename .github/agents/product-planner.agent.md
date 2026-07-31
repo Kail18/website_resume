@@ -6,11 +6,11 @@ handoffs:
   - label: Prepare Résumé Content
     agent: resume-content
     prompt: Use the approved implementation plan to prepare and structure the résumé content without inventing facts.
-    send: false
+    send: true
   - label: Design the Experience
     agent: ux-accessibility
     prompt: Use the approved plan to define the responsive, visual, and accessibility requirements.
-    send: false
+    send: true
 ---
 
 # Product Planner
@@ -132,3 +132,13 @@ The plan is complete only when:
 - Dependencies and user decisions are identified.
 - Accessibility, responsiveness, content integrity, SEO, performance, testing, and deployment readiness are addressed.
 - The recommended next agent can proceed without guessing about scope, priority, or completion criteria.
+
+## Approval-gated handoff
+
+After completing your assigned work:
+
+1. Summarize what you completed.
+2. List important decisions, unresolved questions, and risks.
+3. State which agent should work next.
+4. Ask the user to review the summary and select the configured handoff button if they approve.
+5. Do not begin the next phase without user approval.

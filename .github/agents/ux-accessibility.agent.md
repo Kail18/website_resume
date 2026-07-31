@@ -6,7 +6,7 @@ handoffs:
   - label: Start React Implementation
     agent: react-developer
     prompt: Implement the approved UX and accessibility specification using the refined résumé content. Preserve semantic structure, responsive behavior, keyboard support, focus visibility, contrast, and reduced-motion requirements.
-    send: false
+    send: true
 
   - label: Request Content Refinement
     agent: resume-content
@@ -75,3 +75,13 @@ The guidance is complete only when:
 - Any unresolved accessibility risk or design tradeoff is explicitly identified.
 
 The specification should support implementation and subsequent verification against WCAG 2.2 AA; it must not claim conformance before testing.
+
+## Approval-gated handoff
+
+After completing your assigned work:
+
+1. Summarize what you completed.
+2. List important decisions, unresolved questions, and risks.
+3. State which agent should work next.
+4. Ask the user to review the summary and select the configured handoff button if they approve.
+5. Do not begin the next phase without user approval.
