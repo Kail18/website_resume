@@ -10,7 +10,20 @@ html,body,#root{height:100%;}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:var(--bg);line-height:1.4}
 .app-root{display:flex;flex-direction:column;min-height:100vh}
 .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;z-index:1000}
+/* Reveal skip link when keyboard-focused; keep hidden otherwise */
+.skip-link:focus-visible,
+.skip-link:focus{
+  position:fixed;
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  padding:8px 12px;
+  background:var(--text);
+  color:var(--bg);
+  z-index:2000;
+  border-radius:6px;
+}
 header.site-header{border-bottom:1px solid #e6eef8;background:linear-gradient(180deg, #fff, #fbfdff)}
 .container{max-width:980px;margin:0 auto;padding:16px}
 .site-title{font-size:1rem;margin:0}
@@ -19,14 +32,9 @@ header.site-header{border-bottom:1px solid #e6eef8;background:linear-gradient(18
 .nav a[aria-current="page"]{color:var(--accent);font-weight:600}
 .nav a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 .main-grid{padding:24px}
-.projects{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:768px){
-  .projects{grid-template-columns:repeat(2,1fr)}
-}
-@media(min-width:1200px){
-  .projects{grid-template-columns:repeat(3,1fr)}
-}
-.project-card{border:1px solid #e6eef8;padding:12px;border-radius:8px;background:#fff}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+/* Use fluid, wrapping grid so items reflow at extreme zoom/large text sizes */
+.project-card{border:1px solid #e6eef8;padding:12px;border-radius:8px;background:#fff;overflow-wrap:break-word}
 .project-card h3{margin:0 0 8px 0;font-size:1.05rem}
 .project-card p{margin:0 0 12px 0;color:var(--muted)}
 .project-card a.case-link{display:inline-flex;align-items:center;min-height:44px;padding:10px 12px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none}
@@ -34,8 +42,13 @@ header.site-header{border-bottom:1px solid #e6eef8;background:linear-gradient(18
 .project-page{max-width:780px}
 .meta{color:var(--muted);font-size:0.95rem}
 
-/* Ensure focus rings remain visible at large zoom */
-:focus-visible{outline:3px solid var(--focus);outline-offset:3px;box-shadow:0 0 0 4px rgba(11,18,32,0.06)}
+/* Ensure focus rings remain visible at large zoom for the main interactive element types */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:not([tabindex="-1"]):focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+  box-shadow:0 0 0 4px rgba(11,18,32,0.06);
+}
+/* Fallback focus color for non-supporting browsers */
 :focus{outline-color:var(--focus)}
 
 /* Respect reduced motion */
