@@ -1,0 +1,74 @@
+:root{
+  --bg: #ffffff;
+  --text: #0b1220; /* dark text */
+  --muted: #3b4752;
+  --accent: #0b63d8;
+  --focus: #0b1220; /* darker focus for >=3:1 vs white */
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%;}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:var(--bg);line-height:1.4}
+.app-root{display:flex;flex-direction:column;min-height:100vh}
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+/* Reveal skip link when keyboard-focused; keep hidden otherwise */
+.skip-link:focus-visible,
+.skip-link:focus{
+  position:fixed;
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  padding:8px 12px;
+  background:var(--text);
+  color:var(--bg);
+  z-index:2000;
+  border-radius:6px;
+}
+header.site-header{border-bottom:1px solid #e6eef8;background:linear-gradient(180deg, #fff, #fbfdff)}
+.container{max-width:980px;margin:0 auto;padding:16px}
+.site-title{font-size:1rem;margin:0}
+.nav{display:flex;gap:8px;align-items:center}
+.nav{flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px;display:inline-block;min-width:44px;min-height:44px}
+.nav a[aria-current="page"]{color:var(--accent);font-weight:600}
+.nav a:focus-visible,
+.nav a:focus{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+  box-shadow:0 0 0 4px rgba(11,18,32,0.12);
+}
+  /* Fallback for browsers where :focus-visible is not applied consistently */
+  .nav a:focus{outline:3px solid var(--focus);outline-offset:3px}
+  .nav a:focus{outline:3px solid var(--focus) !important;outline-offset:3px !important}
+.main-grid{padding:24px}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+/* Use fluid, wrapping grid so items reflow at extreme zoom/large text sizes */
+.project-card{border:1px solid #e6eef8;padding:12px;border-radius:8px;background:#fff;overflow-wrap:break-word}
+/* Prevent overflow at extreme zoom by allowing flex/grid children to shrink */
+.app-root,.container,.projects,.project-card{min-width:0}
+.project-card h3{margin:0 0 8px 0;font-size:1.05rem}
+.project-card p{margin:0 0 12px 0;color:var(--muted)}
+.project-card a.case-link{display:inline-flex;align-items:center;min-height:44px;padding:10px 12px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none}
+.project-card a.case-link:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.project-page{max-width:780px}
+.meta{color:var(--muted);font-size:0.95rem}
+
+/* Ensure focus rings remain visible at large zoom for the main interactive element types */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:not([tabindex="-1"]):focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+  box-shadow:0 0 0 4px rgba(11,18,32,0.06);
+}
+/* Fallback focus color for non-supporting browsers */
+:focus{outline-color:var(--focus)}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important}
+}
+
+/* Targeted fallback to guarantee visible outlines on header nav links */
+header nav a:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}

@@ -1,6 +1,7 @@
 ---
 name: React Developer
 description: Implement React résumé and portfolio features using accessible, reusable components while preserving existing conventions and verifying changes with project checks.
+target: vscode
 tools: [execute, read, edit, search, browser]
 handoffs:
   - label: Start Quality Review

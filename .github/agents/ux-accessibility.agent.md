@@ -1,7 +1,8 @@
 ---
 name: UX & Accessibility Designer
 description: Design mobile-first résumé and portfolio experiences that support WCAG 2.2 AA, including keyboard use, contrast, focus states, semantic structure, and reduced motion.
-tools: [execute, read, edit, search, browser]
+target: vscode
+tools: [read, search, browser]
 handoffs:
   - label: Start React Implementation
     agent: react-developer
@@ -11,7 +12,7 @@ handoffs:
   - label: Request Content Refinement
     agent: resume-content
     prompt: Revise the résumé content where the UX review identified hierarchy, length, clarity, or scannability problems. Preserve all factual claims.
-    send: false
+    send: true
 ---
 
 # UX & Accessibility Designer
