@@ -36,6 +36,8 @@ header.site-header{border-bottom:1px solid #e6eef8;background:linear-gradient(18
   outline-offset:3px;
   box-shadow:0 0 0 4px rgba(11,18,32,0.12);
 }
+  /* Fallback for browsers where :focus-visible is not applied consistently */
+  .nav a:focus{outline:3px solid var(--focus);outline-offset:3px}
 .main-grid{padding:24px}
 .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
 /* Use fluid, wrapping grid so items reflow at extreme zoom/large text sizes */
