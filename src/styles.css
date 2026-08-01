@@ -1,0 +1,43 @@
+:root{
+  --bg: #ffffff;
+  --text: #0b1220; /* dark text */
+  --muted: #3b4752;
+  --accent: #0b63d8;
+  --focus: #ffb84d;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%;}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:var(--bg);line-height:1.4}
+.app-root{display:flex;flex-direction:column;min-height:100vh}
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;z-index:1000}
+header.site-header{border-bottom:1px solid #e6eef8;background:linear-gradient(180deg, #fff, #fbfdff)}
+.container{max-width:980px;margin:0 auto;padding:16px}
+.site-title{font-size:1rem;margin:0}
+.nav{display:flex;gap:8px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px;display:inline-block;min-width:44px;min-height:44px}
+.nav a[aria-current="page"]{color:var(--accent);font-weight:600}
+.nav a:focus{outline:3px solid var(--focus);outline-offset:3px}
+.main-grid{padding:24px}
+.projects{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:768px){
+  .projects{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:1200px){
+  .projects{grid-template-columns:repeat(3,1fr)}
+}
+.project-card{border:1px solid #e6eef8;padding:12px;border-radius:8px;background:#fff}
+.project-card h3{margin:0 0 8px 0;font-size:1.05rem}
+.project-card p{margin:0 0 12px 0;color:var(--muted)}
+.project-card a.case-link{display:inline-block;padding:8px 12px;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none}
+.project-card a.case-link:focus{outline:3px solid var(--focus);outline-offset:3px}
+.project-page{max-width:780px}
+.meta{color:var(--muted);font-size:0.95rem}
+
+/* Ensure focus rings remain visible at large zoom */
+:focus{outline-color:var(--focus)}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important}
+}
