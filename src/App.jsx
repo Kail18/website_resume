@@ -9,7 +9,13 @@ import ProjectNotFound from './pages/ProjectNotFound'
 export default function App(){
   return (
     <div className="app-root">
-      <a className="skip-link" href="#main">Skip to main content</a>
+      <a
+        className="skip-link"
+        href="#main"
+        onClick={(event) => { event.preventDefault(); document.getElementById("main")?.focus(); }}
+      >
+        Skip to main content
+      </a>
       <Header />
       <main id="main" tabIndex={-1}>
         <Routes>
