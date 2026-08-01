@@ -11,7 +11,7 @@ export default function App(){
     <div className="app-root">
       <a className="skip-link" href="#main">Skip to main content</a>
       <Header />
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/projects" element={<ProjectsPage/>} />
